@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<updates>
+	<update appVersion="43.0a1" buildID="20150820210440" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150820/b2g-flamingo-gecko-update.mar" hashFunction="SHA512" hashValue="5d1c243d7f3d2647058c49ac1e3521c0a1944222a7001148ad1b4385e9d1ecf9526857d14299477293c161df9df9303c87d28dbcee186acef78c97cfca0447f8" size="94340860" type="complete"/>
+	</update>
+</updates>

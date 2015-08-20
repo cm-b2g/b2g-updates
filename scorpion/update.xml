@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<updates>
+	<update appVersion="43.0a1" buildID="20150820204411" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150820/b2g-scorpion-gecko-update.mar" hashFunction="SHA512" hashValue="cb48b5baeb74eab77f35847062c1b050bf53f77223feced333bf46c9c02aa28d81c27111079b067b6e40d9cbffe7c3d48a48e7995aee29ba1245bfafeef639f5" size="109799155" type="complete"/>
+	</update>
+</updates>

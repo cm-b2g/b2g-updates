@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <updates>
-	<update appVersion="43.0a1" buildID="20150820145627" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
-		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150820/b2g-sirius-gecko-update.mar" hashFunction="SHA512" hashValue="fbba81ce63fe86b0e0d408b09f0befdbcf4c78718364467463b567c7805a89d078214e669b08943437da6f24eade23732e71a3a3b40e7cb578c5e5d4188827a6" size="109798797" type="complete"/>
+	<update appVersion="43.0a1" buildID="20150820205101" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150820/b2g-sirius-gecko-update.mar" hashFunction="SHA512" hashValue="0f61d06421e8e3bb2db6b7cf3fa6ed1bb72a630b4fa94c61963b38d8735e30fdd821400f3c8a3ef1eee9ace36afef81f4a0981c89f0237d23bfdaa6f097f5510" size="109798679" type="complete"/>
 	</update>
 </updates>
