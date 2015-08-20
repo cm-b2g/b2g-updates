@@ -18,8 +18,10 @@ export ENABLE_DEFAULT_BOOTANIMATION=true &&
 ./build.sh
 
 # Copy the month's images to a release zip
-if [ ! -f "../b2g-fota/$1/B2G_MASTER-$(date +'%Y%m')_$1.zip" ]; then
-    zip -1 ../b2g-fota/$1/B2G_MASTER-$(date +'%Y%m')_$1.zip out/target/product/$1/system.img out/target/product/$1/boot.img out/target/product/$1/userdata.img
+if [ ! -f "b2g-updates/$1/B2G_MASTER-$(date +'%Y%m')_$1.zip" ]; then
+    pushd out/target/product/$1/
+    zip -1 ../../../../b2g-updates/$1/B2G_MASTER-$(date +'%Y%m')_$1.zip system.img boot.img userdata.img
+    popd
 fi;
 
 # Build a full Gecko/Gaia update.mar
