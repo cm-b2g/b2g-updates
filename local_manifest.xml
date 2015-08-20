@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<manifest>
+
+  <remote name="af6" fetch="git://github.com/AdFad666/" />
+  <remote name="fxp" fetch="git://github.com/fxpdev/" />
+  <remote name="sony" fetch="git://github.com/sonyxperiadev/" />
+  <remote name="sb" fetch="git://github.com/SuperBenevolent/" />
+
+  <project name="b2g-updates" path="b2g-updates" remote="fxp" revision="master" >
+    <copyfile src="full-build.sh" dest="full-build.sh" />
+    <copyfile src="release-all.sh" dest="release-all.sh" />
+  </project>
+
+  <remove-project name="device-sony-yukon" />
+  <remove-project name="device-sony-tianchi" />
+  <remove-project name="device-sony-shinano" />
+  <remove-project name="device-sony-sirius" />
+
+  <project name="device-sony-yukon" path="device/sony/yukon" remote="af6" revision="sony-aosp-l" />
+  <project name="device-sony-tianchi" path="device/sony/tianchi" remote="af6" revision="sony-aosp-l" />
+  <project name="device-sony-shinano" path="device/sony/shinano" remote="af6" revision="sony-aosp-l" />
+  <project name="device-sony-sirius" path="device/sony/sirius" remote="af6" revision="sony-aosp-l" />
+
+  <project name="macaddrsetup" path="hardware/sony/macaddrsetup" remote="sony" revision="master" />
+
+  <project name="aosp-vendor-qcom" path="vendor/qcom" remote="sb" revision="lollipop-mr1" />
+  <project name="aosp-vendor-qcom-proprietary" path="vendor/qcom/proprietary" remote="sb" revision="lollipop-mr1" />
+  <project name="aosp-vendor-sony" path="vendor/sony" remote="sb" revision="lollipop-mr1" />
+
+</manifest>
