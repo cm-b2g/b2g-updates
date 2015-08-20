@@ -12,6 +12,11 @@ RELEASE_DEVICES="
     flamingo
     "
 
+# Before we do anything, make sure our release repo is up-to-date.
+pushd b2g-updates/
+    git pull
+popd
+
 # Build full releases for the list of devices.
 full_build()
 {
