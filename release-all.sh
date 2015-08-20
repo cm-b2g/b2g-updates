@@ -2,13 +2,15 @@
 
 # export GITHUB_TOKEN=
 
-
-
 # List of devices to build releases for.
 RELEASE_DEVICES="
-	sirius
-	tianchi
-	"
+    leo
+    aries
+    scorpion
+    sirius
+    tianchi
+    flamingo
+    "
 
 # Build full releases for the list of devices.
 full_build()
