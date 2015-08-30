@@ -26,26 +26,43 @@ export ENABLE_DEFAULT_BOOTANIMATION=true &&
 # Copy the month's images to a release zip
 if [ ! -f "b2g-updates/$1/B2G_MASTER-$(date +'%Y%m')_$1.zip" ]; then
     pushd out/target/product/$1/
-    zip -1 ../../../../b2g-updates/$1/B2G_MASTER-$(date +'%Y%m')_$1.zip system.img boot.img userdata.img
+    zip -1 ../../../../b2g-updates/$1/B2G_MASTER-$(date +'%Y%m')_$1.zip system.img boot.img recovery.img userdata.img
     popd
 fi;
 
-# Build a full Gecko/Gaia update.mar
-./build.sh gecko-update-full
+# Choose which type of OTA build
+case "$2" in
+    "full")
+        # Build a full FOTA Gonk/Gecko/Gaia update.mar
+        OTA_TYPE="gecko-update-fota-full"
+        OTA_LOCATION="out/target/product/$1/fota-$1-update-full.mar"
+        ;;
+    *)
+        # Build a full OTA Gecko/Gaia update.mar
+        OTA_TYPE="gecko-update-full"
+        OTA_LOCATION="objdir-gecko/dist/b2g-update/b2g-$1-gecko-update.mar"
+        ;;
+esac
+
+# Build the chosen type of update
+echo "Type of OTA: $OTA_TYPE"
+./build.sh "$OTA_TYPE"
 
 # Prepare the data for the update.xml
 export ANDROID_TOOLCHAIN="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/bin/"
 B2G_BUILD_ID=`cat out/target/product/$1/system/b2g/platform.ini | grep BuildID | sed -e 's/BuildID=//' | tr -d '\n\r'`
 B2G_MILESTONE=`cat out/target/product/$1/system/b2g/platform.ini | grep Milestone | sed -e 's/Milestone=//' | tr -d '\n\r'`
-URL_TEMPLATE="https://github.com/fxpdev/b2g-updates/releases/download/$(date +"%Y%m%d")/b2g-$1-gecko-update.mar"
+URL_TEMPLATE="https://github.com/fxpdev/b2g-updates/releases/download/$(date +"%Y%m%d")/b2g-update-$(date +"%Y%m%d")-$1.mar"
 
 # Locations to copy files
-UPDATE_MAR="b2g-updates/$1/b2g-$1-gecko-update.mar"
+UPDATE_MAR="b2g-updates/$1/b2g-update-$(date +"%Y%m%d")-$1.mar"
 UPDATE_XML="b2g-updates/$1/update.xml"
 
-# Copy the update.mar to the git repo
-cp objdir-gecko/dist/b2g-update/b2g-$1-gecko-update.mar $UPDATE_MAR
-
-# Build the update.xml for the update.mar
-./tools/update-tools/build-update-xml.py $UPDATE_MAR --url-template $URL_TEMPLATE --app-version $B2G_MILESTONE --platform-version $B2G_MILESTONE --build-id $B2G_BUILD_ID --output $UPDATE_XML
-
+if [ -f ${OTA_LOCATION} ]; then
+    # Copy the update.mar to the git repo
+    cp $OTA_LOCATION $UPDATE_MAR
+    # Build the update.xml for the update.mar
+    ./tools/update-tools/build-update-xml.py $UPDATE_MAR --url-template $URL_TEMPLATE --app-version $B2G_MILESTONE --platform-version $B2G_MILESTONE --build-id $B2G_BUILD_ID --output $UPDATE_XML
+else
+    echo "ERROR: No update.mar built!"
+fi

@@ -17,12 +17,15 @@ pushd b2g-updates/
     git pull
 popd
 
-# Build full releases for the list of devices.
+# Build full releases for a list of devices.
+#
+# $1 = list of devices
+# $2 = type of build
 full_build()
 {
     for NAME in $1
     do
-        ./full-build.sh $NAME
+        ./full-build.sh $NAME $2
     done
 }
 full_build "$RELEASE_DEVICES"
@@ -63,11 +66,13 @@ github_release()
     # Create the release from the tag.
     ./github-release release --user fxpdev --repo b2g-updates --tag $2 --name "b2g-gecko-update-$2"
 
-    # Upload the releases to GitHub.
+    # Upload the releases to GitHub if it exists.
     for NAME in $1
     do
-        echo "Uploading $NAME"
-        ./github-release upload --user fxpdev --repo b2g-updates --tag $2 --name "b2g-$NAME-gecko-update.mar" --file $NAME/b2g-$NAME-gecko-update.mar
+        if [ -f $NAME/b2g-update-$2-$NAME.mar ]; then
+            echo "Uploading $NAME"
+            ./github-release upload --user fxpdev --repo b2g-updates --tag $2 --name "b2g-update-$2-$NAME.mar" --file $NAME/b2g-update-$2-$NAME.mar
+        fi
     done
 
     echo "Uploading Complete!"

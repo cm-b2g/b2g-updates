@@ -6,6 +6,8 @@
   <remote name="sony" fetch="git://github.com/sonyxperiadev/" />
   <remote name="sb" fetch="git://github.com/SuperBenevolent/" />
 
+  <project name="init_sh" path="external/init_sh" remote="af6" revision="1199675"/>
+
   <remove-project name="device-sony-yukon" />
   <remove-project name="device-sony-tianchi" />
   <remove-project name="device-sony-flamingo" />
