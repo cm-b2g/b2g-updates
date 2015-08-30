@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# $1 = device codename
+# $2 = release date
+# $3 = type of build
+
 # Create the .config for B2G's build.sh script
 CORE_COUNT=`grep processor /proc/cpuinfo | wc -l`
 echo MAKE_FLAGS=-j$((CORE_COUNT + 2)) > .tmp-config
@@ -35,7 +39,7 @@ if [ ! -f "b2g-updates/$1/B2G_MASTER-$(date +'%Y%m')_$1.zip" ]; then
 fi;
 
 # Choose which type of OTA build
-case "$2" in
+case "$3" in
     "full")
         # Build a full FOTA Gonk/Gecko/Gaia update.mar
         OTA_TYPE="gecko-update-fota-full"
@@ -49,17 +53,16 @@ case "$2" in
 esac
 
 # Build the chosen type of update
-echo "Type of OTA: $OTA_TYPE"
 ./build.sh "$OTA_TYPE"
 
-# Prepare the data for the update.xml
+# Prepare for the update.xml
 export ANDROID_TOOLCHAIN="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/bin/"
 B2G_BUILD_ID=`cat out/target/product/$1/system/b2g/platform.ini | grep BuildID | sed -e 's/BuildID=//' | tr -d '\n\r'`
 B2G_MILESTONE=`cat out/target/product/$1/system/b2g/platform.ini | grep Milestone | sed -e 's/Milestone=//' | tr -d '\n\r'`
-URL_TEMPLATE="https://github.com/fxpdev/b2g-updates/releases/download/$(date +"%Y%m%d")/b2g-update-$(date +"%Y%m%d")-$1.mar"
+URL_TEMPLATE="https://github.com/fxpdev/b2g-updates/releases/download/$2/b2g-update-$2-$1.mar"
 
 # Locations to copy files
-UPDATE_MAR="b2g-updates/$1/b2g-update-$(date +"%Y%m%d")-$1.mar"
+UPDATE_MAR="b2g-updates/$1/b2g-update-$2-$1.mar"
 UPDATE_XML="b2g-updates/$1/update.xml"
 
 if [ -f ${OTA_LOCATION} ]; then

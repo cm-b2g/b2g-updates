@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# $1 = type of build
+
 # export GITHUB_TOKEN=
 
 # List of devices to build releases for.
@@ -12,32 +14,26 @@ RELEASE_DEVICES="
     flamingo
     "
 
-# Before we do anything, make sure our release repo is up-to-date.
-pushd b2g-updates/
-    git pull
-popd
+RELEASE_DATE=$(date +'%Y%m%d')
 
 # Build full releases for a list of devices.
 #
 # $1 = list of devices
-# $2 = type of build
+# $2 = release date
+# $3 = type of build
 full_build()
 {
     for NAME in $1
     do
-        ./full-build.sh $NAME $2
+        . b2g-updates/full-build.sh $NAME $2 $3
     done
 }
-full_build "$RELEASE_DEVICES"
-
-# Go to /B2G/b2g-updates to publish the releases.
-pushd b2g-updates/
 
 # Add all the update.xml files from the builds
 # then commit and push them to GitHub.
 #
 # $1 = list of devices
-# $2 = timestamp for tag
+# $2 = release date
 add_update_xml()
 {
     # Add update.xml files for commit
@@ -51,13 +47,12 @@ add_update_xml()
     git commit -m "Update the update.xml files for release $2"
     git push
 }
-add_update_xml "$RELEASE_DEVICES" "$(date +'%Y%m%d')"
 
 # Create the tag and release on GitHub
 # then upload the updates to the release.
 #
 # $1 = list of devices
-# $2 = timestamp for tag
+# $2 = release date
 github_release()
 {
     # Create the tag for the release.
@@ -77,7 +72,23 @@ github_release()
 
     echo "Uploading Complete!"
 }
-github_release "$RELEASE_DEVICES" "$(date +'%Y%m%d')"
 
-# Return back to /B2G
+# Before we do anything, make sure our release repo is up-to-date.
+echo "Sync the b2g-updates repo:"
+pushd b2g-updates/
+git pull
+popd
+
+# Clean out the old build.
+echo "Remove the old build directories"
+rm -rf out/
+rm -rf objdir-gecko/
+
+# Build full releases for the list of devices.
+full_build "$RELEASE_DEVICES" "$RELEASE_DATE" $1
+
+# Go to /b2g-updates to publish the releases.
+pushd b2g-updates/
+add_update_xml "$RELEASE_DEVICES" "$RELEASE_DATE"
+github_release "$RELEASE_DEVICES" "$RELEASE_DATE"
 popd
