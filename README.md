@@ -9,9 +9,14 @@ to host the actual updates.
 * Building all devices and uploading to GitHub is scripted by `release-all.sh`.
 * The actual upload is managed by `github-release` v0.5.3 which comes from [github.com/aktau](https://github.com/aktau/github-release).
 
-Simply clone `b2g-updates` inside the B2G folder, then symlink `release-all.sh` and
-`full-build.sh` to the B2G folder. After that it's enough to run `release-all.sh`,
-then grab a coffee ass all of your releases are automatically built and uploaded.
+Be sure to grab the right manifest when cloning B2G:
+`export GITREPO="git://github.com/AdFad666/b2g-manifest --reference /home/repo/"`
+
+After you've done an initial `config.sh` sync you should clone `b2g-updates` inside
+the B2G folder, then symlink `release-all.sh` and `full-build.sh` to the B2G folder. 
+
+After that it's enough to run `release-all.sh`, then grab a coffee as all of your
+releases are automatically built and uploaded.
 
 (Just remember to have your [GitHub access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
 defined as `GITHUB_TOKEN=XXXXXXXXX` in `release-all.sh`!)

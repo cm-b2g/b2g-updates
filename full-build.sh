@@ -1,8 +1,12 @@
 #!/bin/bash
 
-# Grab the right manifest and download repos
-export GITREPO="git://github.com/AdFad666/b2g-manifest --reference /home/repo/"
-./config.sh $1-l
+# Create the .config for B2G's build.sh script
+CORE_COUNT=`grep processor /proc/cpuinfo | wc -l`
+echo MAKE_FLAGS=-j$((CORE_COUNT + 2)) > .tmp-config
+echo GECKO_OBJDIR=$PWD/objdir-gecko >> .tmp-config
+echo DEVICE_NAME=$1-l >> .tmp-config
+echo PRODUCT_NAME=$1 >> .tmp-config 
+mv .tmp-config .config
 
 # Build an updateable B2G
 export VARIANT=userdebug &&
