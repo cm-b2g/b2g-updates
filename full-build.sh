@@ -13,23 +13,7 @@ echo PRODUCT_NAME=$1 >> .tmp-config
 mv .tmp-config .config
 
 # Build an updateable B2G
-export VARIANT=userdebug &&
-export B2G_UPDATER=1 &&
-export B2G_SYSTEM_APPS=1 &&
-export B2G_UPDATE_CHANNEL=default &&
-export MOZ_TELEMETRY_REPORTING=1 &&
-export MOZ_CRASHREPORTER_NO_REPORT=1 &&
-# Gaia & Spark
-export GAIA_DISTRIBUTION_DIR=distros/spark &&
-export GAIA_OPTIMIZE=1 &&
-# Extra Locales
-export LOCALE_BASEDIR=$PWD/gaia/locales &&
-export LOCALES_FILE=$PWD/gaia/locales/languages_all.json &&
-export GAIA_DEFAULT_LOCALE=en-GB &&
-# Firefox OS Branding
-export MOZILLA_OFFICIAL=1 &&
-export ENABLE_DEFAULT_BOOTANIMATION=true &&
-./build.sh
+. b2g-updates/export-me.sh && ./build.sh
 
 # Copy the month's images to a release zip
 if [ ! -f "b2g-updates/$1/B2G_MASTER-$(date +'%Y%m')_$1.zip" ]; then
@@ -53,7 +37,7 @@ case "$3" in
 esac
 
 # Build the chosen type of update
-./build.sh "$OTA_TYPE"
+. b2g-updates/export-me.sh && ./build.sh "$OTA_TYPE"
 
 # Prepare for the update.xml
 export ANDROID_TOOLCHAIN="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/bin/"
