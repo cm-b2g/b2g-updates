@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <updates>
-	<update appVersion="43.0a1" buildID="20150902223010" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
-		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150902/b2g-update-20150902-sirius.mar" hashFunction="SHA512" hashValue="e6b7d896582eb6443ea94d73db1aa0d5a02d63e32e3fc6005653b5bcca78fc9ba684fd56092e8f8f9ef4831822fdfa9016c0f957078f50c93888bbf2b44b1851" size="113238988" type="complete"/>
+	<update appVersion="43.0a1" buildID="20150909205622" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150909/b2g-update-20150909-sirius.mar" hashFunction="SHA512" hashValue="30269f98d1d5e5c0769c67fa19e3b8c0cc5e477470bf80789ec37adde981a39882fb8a3b17aaca2065f74b2ebddf9f48f547f1fb52a4e15d292ccb06fe159d59" size="113330825" type="complete"/>
 	</update>
 </updates>

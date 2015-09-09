@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <updates>
-	<update appVersion="43.0a1" buildID="20150820205754" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
-		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150820/b2g-tianchi-gecko-update.mar" hashFunction="SHA512" hashValue="550391800e938628f70f5cc8dd6e3a949e10d2bb4d4486fd29610db857dffe0c6d26528760dab83262382a8b671922eb14b41524e1a2f467f8110c06e9b6e160" size="94342739" type="complete"/>
+	<update appVersion="43.0a1" buildID="20150909210259" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150909/b2g-update-20150909-tianchi.mar" hashFunction="SHA512" hashValue="c6b467ee816cfdfd786b73891a9e207fa22583c6eb8f7b321d2e540f375d23231e2e7db51b9cf30115cce9480c6d39967b0018fc01b4362e64f1ab864f26f500" size="97840971" type="complete"/>
 	</update>
 </updates>

@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <updates>
-	<update appVersion="43.0a1" buildID="20150820202407" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
-		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150820/b2g-leo-gecko-update.mar" hashFunction="SHA512" hashValue="65f58dca463e1fa0e88725697826f5966bf4530c2a265d105c28780548a668f489478e15aefb209104b1ef762168eaaf710c976e84e61b0aa1e2ac73ec140399" size="109797973" type="complete"/>
+	<update appVersion="43.0a1" buildID="20150909203240" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150909/b2g-update-20150909-leo.mar" hashFunction="SHA512" hashValue="158cc1da0381fee9be9e0cf2bf277a5eea2dab1f845592809a277909533ad6de2a6db9a34baa76baa27072fa919af75c34163b207c75a12ec5031e8c851738dd" size="113330950" type="complete"/>
 	</update>
 </updates>

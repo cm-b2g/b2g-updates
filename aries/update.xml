@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <updates>
-	<update appVersion="43.0a1" buildID="20150820203726" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
-		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150820/b2g-aries-gecko-update.mar" hashFunction="SHA512" hashValue="051bf9982f4c3b89a38063883d87fb425860853454e40ca156520c93cd0711e7c5536b94a2db9913f7a38c7850a3d9a53edde2e24e726a1f1d7f7b6139f9772d" size="109799869" type="complete"/>
+	<update appVersion="43.0a1" buildID="20150909204946" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150909/b2g-update-20150909-aries.mar" hashFunction="SHA512" hashValue="e82c561e3b21685fa06cb9409dc0715e130f37ef5098ac8385fbbc93ea30fba25b8f544f0e9ca9acde637d009c7721427c19f3b4dc75e493c1942bd3483ab3f7" size="113330984" type="complete"/>
 	</update>
 </updates>
