@@ -8,7 +8,6 @@
 RELEASE_DEVICES="
     leo
     aries
-    scorpion
     sirius
     tianchi
     flamingo
