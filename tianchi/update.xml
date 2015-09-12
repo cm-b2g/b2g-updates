@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <updates>
-	<update appVersion="43.0a1" buildID="20150909210259" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
-		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150909/b2g-update-20150909-tianchi.mar" hashFunction="SHA512" hashValue="c6b467ee816cfdfd786b73891a9e207fa22583c6eb8f7b321d2e540f375d23231e2e7db51b9cf30115cce9480c6d39967b0018fc01b4362e64f1ab864f26f500" size="97840971" type="complete"/>
+	<update appVersion="43.0a1" buildID="20150912190936" detailsURL="http://www.mozilla.com/test/sample-details.html" isOSUpdate="true" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="43.0a1">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150912/b2g-update-20150912-tianchi.mar" hashFunction="SHA512" hashValue="f5ec54862f69c98e5055a36161169ac0b8447be456424a3f0f539e7291002c568895c6e40422618368d74b1ea92dd205cc4f73f00294cb770ea8276c1adcbd23" size="223254290" type="complete"/>
 	</update>
 </updates>
