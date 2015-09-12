@@ -52,13 +52,28 @@ add_update_xml()
 #
 # $1 = list of devices
 # $2 = release date
+# $3 = type of build
 github_release()
 {
+    # Name and description for the release
+    case "$3" in
+        "full")
+            # FOTA Gonk/Gecko/Gaia
+            OTA_NAME="Full Update $2"
+            OTA_DESC="Full Gonk/Gecko/Gaia FOTA update. Device will reboot to recovery and reflash system/boot/recovery partitions."
+            ;;
+        *)
+            # OTA Gecko/Gaia
+            OTA_NAME="Update $2"
+            OTA_DESC="Gecko/Gaia OTA update. Device will apply the update live and reboot straight into the updated system."
+            ;;
+    esac
+
     # Create the tag for the release.
     git tag $2 && git push --tags
 
     # Create the release from the tag.
-    ./github-release release --user fxpdev --repo b2g-updates --tag $2 --name "b2g-gecko-update-$2"
+    ./github-release release --user fxpdev --repo b2g-updates --tag $2 --name $OTA_NAME --description $OTA_DESC
 
     # Upload the releases to GitHub if it exists.
     for NAME in $1
@@ -89,5 +104,5 @@ full_build "$RELEASE_DEVICES" "$RELEASE_DATE" $1
 # Go to /b2g-updates to publish the releases.
 pushd b2g-updates/
 add_update_xml "$RELEASE_DEVICES" "$RELEASE_DATE"
-github_release "$RELEASE_DEVICES" "$RELEASE_DATE"
+github_release "$RELEASE_DEVICES" "$RELEASE_DATE" $1
 popd
