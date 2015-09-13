@@ -9,7 +9,7 @@ CORE_COUNT=`grep processor /proc/cpuinfo | wc -l`
 echo MAKE_FLAGS=-j$((CORE_COUNT + 2)) > .tmp-config
 echo GECKO_OBJDIR=$PWD/objdir-gecko >> .tmp-config
 echo DEVICE_NAME=$1-l >> .tmp-config
-echo PRODUCT_NAME=$1 >> .tmp-config 
+echo PRODUCT_NAME=$1 >> .tmp-config
 mv .tmp-config .config
 
 # Build an updateable B2G
@@ -26,8 +26,8 @@ fi;
 case "$3" in
     "full")
         # Build a full FOTA Gonk/Gecko/Gaia update.mar
-        OTA_TYPE="gecko-update-fota-full"
-        OTA_LOCATION="out/target/product/$1/fota-$1-update-full.mar"
+        OTA_TYPE="gecko-update-fota-fullimg"
+        OTA_LOCATION="out/target/product/$1/fota-$1-update-fullimg.mar"
         ;;
     *)
         # Build a full OTA Gecko/Gaia update.mar

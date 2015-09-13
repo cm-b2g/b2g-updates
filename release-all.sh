@@ -73,14 +73,14 @@ github_release()
     git tag $2 && git push --tags
 
     # Create the release from the tag.
-    ./github-release release --user fxpdev --repo b2g-updates --tag $2 --name $OTA_NAME --description $OTA_DESC
+    ./github-release release --user fxpdev --repo b2g-updates --tag "$2" --name "$OTA_NAME" --description "$OTA_DESC"
 
     # Upload the releases to GitHub if it exists.
     for NAME in $1
     do
         if [ -f $NAME/b2g-update-$2-$NAME.mar ]; then
             echo "Uploading $NAME"
-            ./github-release upload --user fxpdev --repo b2g-updates --tag $2 --name "b2g-update-$2-$NAME.mar" --file $NAME/b2g-update-$2-$NAME.mar
+            ./github-release upload --user fxpdev --repo b2g-updates --tag "$2" --name "b2g-update-$2-$NAME.mar" --file $NAME/b2g-update-$2-$NAME.mar
         fi
     done
 
@@ -99,10 +99,10 @@ rm -rf out/
 rm -rf objdir-gecko/
 
 # Build full releases for the list of devices.
-full_build "$RELEASE_DEVICES" "$RELEASE_DATE" $1
+full_build "$RELEASE_DEVICES" "$RELEASE_DATE" "$1"
 
 # Go to /b2g-updates to publish the releases.
 pushd b2g-updates/
 add_update_xml "$RELEASE_DEVICES" "$RELEASE_DATE"
-github_release "$RELEASE_DEVICES" "$RELEASE_DATE" $1
+github_release "$RELEASE_DEVICES" "$RELEASE_DATE" "$1"
 popd
