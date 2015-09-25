@@ -6,11 +6,11 @@
 
 # List of devices to build releases for.
 RELEASE_DEVICES="
-    leo
-    aries
-    sirius
-    tianchi
     flamingo
+    tianchi
+    sirius
+    aries
+    leo
     "
 
 RELEASE_DATE=$(date +'%Y%m%d')
@@ -22,9 +22,12 @@ RELEASE_DATE=$(date +'%Y%m%d')
 # $3 = type of build
 full_build()
 {
+    if [ "$3" != "nopush" ]; then
+        PART="$3"
+    fi;
     for NAME in $1
     do
-        . b2g-updates/full-build.sh $NAME $2 $3
+        . b2g-updates/full-build.sh $NAME $2 $PART
     done
 }
 
@@ -73,7 +76,7 @@ github_release()
     git tag $2 && git push --tags
 
     # Create the release from the tag.
-    ./github-release release --user fxpdev --repo b2g-updates --tag "$2" --name "$OTA_NAME" --description "$OTA_DESC"
+    ./github-release release --user fxpdev --repo b2g-updates --tag "$2" --name "$OTA_NAME" --description "$OTA_DESC" --pre-release
 
     # Upload the releases to GitHub if it exists.
     for NAME in $1
@@ -101,8 +104,10 @@ rm -rf objdir-gecko/
 # Build full releases for the list of devices.
 full_build "$RELEASE_DEVICES" "$RELEASE_DATE" "$1"
 
-# Go to /b2g-updates to publish the releases.
-pushd b2g-updates/
-add_update_xml "$RELEASE_DEVICES" "$RELEASE_DATE"
-github_release "$RELEASE_DEVICES" "$RELEASE_DATE" "$1"
-popd
+if [ "$1" != "nopush" ]; then
+    # Go to /b2g-updates to publish the releases.
+    pushd b2g-updates/
+    add_update_xml "$RELEASE_DEVICES" "$RELEASE_DATE"
+    github_release "$RELEASE_DEVICES" "$RELEASE_DATE" "$1"
+    popd
+fi;

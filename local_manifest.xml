@@ -6,7 +6,7 @@
   <remote name="sony" fetch="git://github.com/sonyxperiadev/" />
   <remote name="sb" fetch="git://github.com/SuperBenevolent/" />
 
-  <project name="init_sh" path="external/init_sh" remote="af6" revision="master"/>
+  <project name="init_sh" path="hardware/sony/init_sh" remote="b2g" revision="sony-aosp-l"/>
 
   <remove-project name="device-sony-yukon" />
   <remove-project name="device-sony-tianchi" />
@@ -25,8 +25,6 @@
   <project name="device-sony-aries" path="device/sony/aries" remote="af6" revision="sony-aosp-l" />
   <project name="device-sony-scorpion" path="device/sony/scorpion" remote="af6" revision="sony-aosp-l" />
   <project name="device-sony-sirius" path="device/sony/sirius" remote="af6" revision="sony-aosp-l" />
-
-  <project name="macaddrsetup" path="hardware/sony/macaddrsetup" remote="sony" revision="master" />
 
   <project name="aosp-vendor-qcom" path="vendor/qcom" remote="sb" revision="lollipop-mr1" />
   <project name="aosp-vendor-qcom-proprietary" path="vendor/qcom/proprietary" remote="sb" revision="lollipop-mr1" />
