@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <updates>
-	<update appVersion="44.0a1" buildID="20150925221544" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="44.0a1">
-		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150925/b2g-update-20150925-aries.mar" hashFunction="SHA512" hashValue="3554f589db5effba6842a3f23abb4a514899c94bccd10877a5ed53a56bd65b8c390bb02edcd6ec9121567d6f621c03815275a188b0927a4dcd4ad131e7cc3a4a" size="113920409" type="complete"/>
+	<update appVersion="44.0a1" buildID="20150926004939" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="44.0a1">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20150926/b2g-update-20150926-aries.mar" hashFunction="SHA512" hashValue="f0c356eb78941051791a929617f36078ad873338acc76eb045a176253d061b95578d1e8b7eb5491a4d4162f60c2c88b3a929c5a42c48956322bb1c762d1643ef" size="113918311" type="complete"/>
 	</update>
 </updates>
