@@ -41,9 +41,10 @@ esac
 
 # Prepare for the update.xml
 export ANDROID_TOOLCHAIN="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/bin/"
-B2G_BUILD_ID=`cat out/target/product/$1/system/b2g/platform.ini | grep BuildID | sed -e 's/BuildID=//' | tr -d '\n\r'`
-B2G_MILESTONE=`cat out/target/product/$1/system/b2g/platform.ini | grep Milestone | sed -e 's/Milestone=//' | tr -d '\n\r'`
 URL_TEMPLATE="https://github.com/fxpdev/b2g-updates/releases/download/$2/b2g-update-$2-$1.mar"
+B2G_MILESTONE=`cat out/target/product/$1/system/b2g/platform.ini | grep Milestone | sed -e 's/Milestone=//' | tr -d '\n\r'`
+MOZ_B2G_VERSION=`cat gecko/b2g/confvars.sh | grep MOZ_B2G_VERSION | sed -e 's/MOZ_B2G_VERSION=//' | tr -d '\n\r'`
+B2G_BUILD_ID=`cat out/target/product/$1/system/b2g/platform.ini | grep BuildID | sed -e 's/BuildID=//' | tr -d '\n\r'`
 
 # Locations to copy files
 UPDATE_MAR="b2g-updates/$1/b2g-update-$2-$1.mar"
@@ -53,7 +54,7 @@ if [ -f ${OTA_LOCATION} ]; then
     # Copy the update.mar to the git repo
     cp $OTA_LOCATION $UPDATE_MAR
     # Build the update.xml for the update.mar
-    ./tools/update-tools/build-update-xml.py $UPDATE_MAR --url-template $URL_TEMPLATE --app-version $B2G_MILESTONE --platform-version $B2G_MILESTONE --build-id $B2G_BUILD_ID --output $UPDATE_XML
+    ./tools/update-tools/build-update-xml.py $UPDATE_MAR --url-template $URL_TEMPLATE --app-version $B2G_MILESTONE --platform-version $MOZ_B2G_VERSION --build-id $B2G_BUILD_ID --output $UPDATE_XML
 else
     echo "ERROR: No update.mar built!"
 fi
