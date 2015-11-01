@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <updates>
-	<update appVersion="44.0a1" buildID="20151029113507" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="2.5.0.0-prerelease">
-		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20151029/b2g-update-20151029-flamingo.mar" hashFunction="SHA512" hashValue="2f2d9e0e7cb010bd6f8d136b5c3e750c52c0a2166173d5d1126d6f0e1e2d5c442c575886a211f177a25cdf2a5e3e5d3651257f6d4a8f62c7659ddbbc2180d0ee" size="114952521" type="complete"/>
+	<update appVersion="45.0a1" buildID="20151101103913" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="2.6.0.0-prerelease">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20151101/b2g-update-20151101-flamingo.mar" hashFunction="SHA512" hashValue="1f3140e2bf6f4955bb2c820a6d1c87a0c754d9659d07f7d714c6ebe29cbba7cd3e82228fcdca0a4bbd9ac4c7a313ae041c77368d03dcb009debefd4e1f2c5998" size="114280784" type="complete"/>
 	</update>
 </updates>
