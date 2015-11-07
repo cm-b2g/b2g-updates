@@ -8,6 +8,8 @@
 RELEASE_DEVICES="
     flamingo
     tianchi
+    amami
+    honami
     sirius
     aries
     leo
