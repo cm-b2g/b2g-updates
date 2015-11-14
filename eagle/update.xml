@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<updates>
+	<update appVersion="45.0a1" buildID="20151114171404" detailsURL="http://www.mozilla.com/test/sample-details.html" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="2.6.0.0-prerelease">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20151114/b2g-update-20151114-eagle.mar" hashFunction="SHA512" hashValue="4ed907c3a9e150375f236c3830a8adfe170a9b113b5a61fd50aac43b0ec51fc7ad21fa80a8500e249d5c1da6de705687dab2b3de432bf7d5a6e84a7348bd87d6" size="123128268" type="complete"/>
+	</update>
+</updates>
