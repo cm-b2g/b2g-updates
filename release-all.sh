@@ -7,6 +7,7 @@
 # List of devices to build releases for.
 RELEASE_DEVICES="
     flamingo
+    eagle
     tianchi
     amami
     honami

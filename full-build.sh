@@ -26,8 +26,8 @@ fi;
 case "$3" in
     "full")
         # Build a full FOTA Gonk/Gecko/Gaia update.mar
-        OTA_TYPE="gecko-update-fota-fullimg"
-        OTA_LOCATION="out/target/product/$1/fota-$1-update-fullimg.mar"
+        OTA_TYPE="gecko-update-fota-full"
+        OTA_LOCATION="out/target/product/$1/fota-$1-update-full.mar"
         ;;
     *)
         # Build a full OTA Gecko/Gaia update.mar
