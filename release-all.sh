@@ -8,14 +8,15 @@
 RELEASE_DEVICES="
     flamingo
     eagle
+    seagull
     tianchi
+    amami
+    honami
+    scorpion
+    sirius
+    aries
+    leo
     "
-#    amami
-#    honami
-#    sirius
-#    aries
-#    leo
-#    "
 
 RELEASE_DATE=$(date +'%Y%m%d')
 
