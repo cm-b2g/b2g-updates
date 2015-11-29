@@ -17,9 +17,9 @@ mv .tmp-config .config
 
 # Copy the month's images to a release zip
 if [ ! -f "b2g-updates/$1/B2G_MASTER-$(date +'%Y%m')_$1.zip" ]; then
-    pushd out/target/product/$1/
+    pushd out/target/product/$1/ > /dev/null
     zip -1 ../../../../b2g-updates/$1/B2G_MASTER-$(date +'%Y%m')_$1.zip system.img boot.img recovery.img userdata.img
-    popd
+    popd > /dev/null
 fi;
 
 # Choose which type of OTA build

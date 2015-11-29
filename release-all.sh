@@ -97,9 +97,9 @@ github_release()
 
 # Before we do anything, make sure our release repo is up-to-date.
 echo "Sync the b2g-updates repo:"
-pushd b2g-updates/
+pushd b2g-updates/ > /dev/null
 git pull
-popd
+popd > /dev/null
 
 # Clean out the old build.
 echo "Remove the old build directories"
@@ -111,8 +111,8 @@ full_build "$RELEASE_DEVICES" "$RELEASE_DATE" "$1"
 
 if [ "$1" != "nopush" ]; then
     # Go to /b2g-updates to publish the releases.
-    pushd b2g-updates/
+    pushd b2g-updates/ > /dev/null
     add_update_xml "$RELEASE_DEVICES" "$RELEASE_DATE"
     github_release "$RELEASE_DEVICES" "$RELEASE_DATE" "$1"
-    popd
+    popd > /dev/null
 fi;
