@@ -77,6 +77,8 @@ github_release()
             ;;
     esac
 
+    echo "GitHub Token: $GITHUB_TOKEN"
+
     # Create the tag for the release.
     git tag $2 && git push --tags
 
