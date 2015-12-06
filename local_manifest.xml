@@ -5,10 +5,13 @@
   <remote name="af6" fetch="git://github.com/AdFad666/" />
   <remote name="sony" fetch="git://github.com/sonyxperiadev/" />
   <remote name="sb" fetch="git://github.com/SuperBenevolent/" />
+  <remote name="cm-b2g" fetch="git://github.com/cm-b2g/" />
 
   <project name="aosp-vendor-qcom" path="vendor/qcom" remote="sb" revision="lollipop-mr1" />
   <project name="aosp-vendor-qcom-proprietary" path="vendor/qcom/proprietary" remote="sb" revision="lollipop-mr1" />
   <project name="aosp-vendor-sony" path="vendor/sony" remote="sb" revision="lollipop-mr1" />
+
+  <project name="gaia_distros_cm-b2g" path="gaia/distros/cm-b2g" remote="cm-b2g" revision="master" />
 
   <!-- Locales -->
   <project name="l10n/af/gaia" path="gaia/locales/af" remote="mozillaorg" revision="master" />
