@@ -7,7 +7,7 @@ to host the actual updates.
 
 * Building the update for a particular device is scripted by `full-build.sh`.
 * Building all devices and uploading to GitHub is scripted by `release-all.sh`.
-* The actual upload is managed by `github-release` v0.5.3 which comes from [github.com/aktau](https://github.com/aktau/github-release).
+* The actual upload is managed by `github-release` v0.6.2 which comes from [github.com/aktau](https://github.com/aktau/github-release).
 
 Be sure to grab the right manifest when cloning B2G:
 `export GITREPO="git://github.com/AdFad666/b2g-manifest --reference /home/repo/"`
