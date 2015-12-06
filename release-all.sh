@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# $1 = type of build
-
 # export GITHUB_TOKEN=
 
 # List of devices to build releases for.
@@ -24,15 +22,11 @@ RELEASE_DATE=$(date +'%Y%m%d')
 #
 # $1 = list of devices
 # $2 = release date
-# $3 = type of build
 full_build()
 {
-    if [ "$3" != "nopush" ]; then
-        PART="$3"
-    fi;
     for NAME in $1
     do
-        . b2g-updates/full-build.sh $NAME $2 $PART
+        . b2g-updates/full-build.sh $NAME $2
     done
 }
 
@@ -52,6 +46,9 @@ add_update_xml()
 
     # Commit and push the update.xml files.
     git commit -m "Update the update.xml files for release $2"
+
+    echo "GitHub Token: $GITHUB_TOKEN"
+
     git push
 }
 
@@ -60,24 +57,11 @@ add_update_xml()
 #
 # $1 = list of devices
 # $2 = release date
-# $3 = type of build
 github_release()
 {
     # Name and description for the release
-    case "$3" in
-        "full")
-            # FOTA Gonk/Gecko/Gaia
-            OTA_NAME="Full Update $2"
-            OTA_DESC="Full Gonk/Gecko/Gaia FOTA update. Device will reboot to recovery and reflash system/boot/recovery partitions."
-            ;;
-        *)
-            # OTA Gecko/Gaia
-            OTA_NAME="Update $2"
-            OTA_DESC="Gecko/Gaia OTA update. Device will apply the update live and reboot straight into the updated system."
-            ;;
-    esac
-
-    echo "GitHub Token: $GITHUB_TOKEN"
+    OTA_NAME="Full Update $2"
+    OTA_DESC="Full Gonk/Gecko/Gaia FOTA update. Device will reboot to recovery and reflash system/boot partitions."
 
     # Create the tag for the release.
     git tag $2 && git push --tags
@@ -109,12 +93,11 @@ rm -rf out/
 rm -rf objdir-gecko/
 
 # Build full releases for the list of devices.
-full_build "$RELEASE_DEVICES" "$RELEASE_DATE" "$1"
+full_build "$RELEASE_DEVICES" "$RELEASE_DATE"
 
-if [ "$1" != "nopush" ]; then
-    # Go to /b2g-updates to publish the releases.
-    pushd b2g-updates/ > /dev/null
-    add_update_xml "$RELEASE_DEVICES" "$RELEASE_DATE"
-    github_release "$RELEASE_DEVICES" "$RELEASE_DATE" "$1"
-    popd > /dev/null
-fi;
+# Go to /b2g-updates to publish the releases.
+pushd b2g-updates/ > /dev/null
+add_update_xml "$RELEASE_DEVICES" "$RELEASE_DATE"
+github_release "$RELEASE_DEVICES" "$RELEASE_DATE"
+popd > /dev/null
+
