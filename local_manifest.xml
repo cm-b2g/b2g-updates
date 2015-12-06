@@ -5,10 +5,26 @@
   <remote name="af6" fetch="git://github.com/AdFad666/" />
   <remote name="sony" fetch="git://github.com/sonyxperiadev/" />
   <remote name="sb" fetch="git://github.com/SuperBenevolent/" />
+  <remote name="cm-b2g" fetch="git://github.com/cm-b2g/" />
 
   <project name="aosp-vendor-qcom" path="vendor/qcom" remote="sb" revision="lollipop-mr1" />
   <project name="aosp-vendor-qcom-proprietary" path="vendor/qcom/proprietary" remote="sb" revision="lollipop-mr1" />
   <project name="aosp-vendor-sony" path="vendor/sony" remote="sb" revision="lollipop-mr1" />
+
+  <project name="gaia_distros_cm-b2g" path="gaia/distros/cm-b2g" remote="cm-b2g" revision="master" />
+
+<!--
+  <remove-project name="codeaurora_kernel_msm"/>
+  <project path="kernel" name="kernel" groups="device" remote="sony" revision="aosp/AU_LINUX_ANDROID_LA.BF64.1.2.1_RB1.05.00.02.019.067" />
+-->
+  <project name="device-sony-kitakami" path="device/sony/kitakami" groups="device" remote="sony" revision="l-mr1"/>
+  <project name="device-sony-suzuran" path="device/sony/suzuran" groups="device" remote="sony" revision="l-mr1"/>
+  <project name="device-sony-ivy" path="device/sony/ivy" groups="device" remote="sony" revision="l-mr1"/>
+<!--
+  <remove-project name="codeaurora_kernel_msm" />
+  <project name="kernel" path="kernel" remote="af6" revision="MERGEALLTHETHINGS"/>
+-->
+  <project path="hardware/qcom/camera" name="camera" groups="device" remote="sony" revision="aosp/AU_LINUX_ANDROID_LA.BF64.1.1_RB1.05.00.02.172.061" />
 
   <!-- Locales -->
   <project name="l10n/af/gaia" path="gaia/locales/af" remote="mozillaorg" revision="master" />
