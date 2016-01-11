@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <updates>
-	<update appVersion="46.0a1" buildID="20160111001400" detailsURL="http://www.mozilla.com/test/sample-details.html" isOSUpdate="true" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="2.6.0.0-prerelease">
-		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20160111/b2g-update-20160111-seagull.mar" hashFunction="SHA512" hashValue="02ee3def6dcc7aaa451f96080ff833ddea4d5d16ed4eccce3c93325067fe4f1510eff076e3ebf236b20883a1b16f062103701fc108f63627b44dda9b26b6e40b" size="201990390" type="complete"/>
+	<update appVersion="46.0a1" buildID="20160111005002" detailsURL="http://www.mozilla.com/test/sample-details.html" isOSUpdate="true" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="2.6.0.0-prerelease">
+		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20160111/b2g-update-20160111-seagull.mar" hashFunction="SHA512" hashValue="b32817dda4e839a078dcf87bfa74197b63489b6083b15fd8bbf858646a704c3531c9a1de96228c5eb29923ae0719e64ca7716d243c29c06962993c7e1b97bed4" size="201990246" type="complete"/>
 	</update>
 </updates>
