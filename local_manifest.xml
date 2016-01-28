@@ -7,7 +7,7 @@
   <remote name="sb" fetch="git://github.com/SuperBenevolent/" />
 
   <project name="aosp-vendor-qcom" path="vendor/qcom" remote="sb" revision="lollipop-mr1" />
-  <project name="aosp-vendor-qcom-proprietary" path="vendor/qcom/proprietary" remote="sb" revision="lollipop-mr1" />
+  <project name="aosp-vendor-qcom-proprietary-firmware" path="vendor/qcom/proprietary/firmware" remote="sb" revision="lollipop-mr1" />
   <project name="aosp-vendor-sony" path="vendor/sony" remote="sb" revision="lollipop-mr1" />
 
 </manifest>
