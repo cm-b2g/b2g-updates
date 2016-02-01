@@ -3,6 +3,10 @@
 # $1 = device codename
 # $2 = release date
 
+# Clean out the old build.
+rm -rf out/
+rm -rf objdir-gecko/
+
 # Create the .config for B2G's build.sh script
 CORE_COUNT=`grep processor /proc/cpuinfo | wc -l`
 echo MAKE_FLAGS=-j$((CORE_COUNT + 2)) > .tmp-config

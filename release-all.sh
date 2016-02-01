@@ -87,11 +87,6 @@ pushd b2g-updates/ > /dev/null
 git pull
 popd > /dev/null
 
-# Clean out the old build.
-echo "Remove the old build directories"
-rm -rf out/
-rm -rf objdir-gecko/
-
 # Build full releases for the list of devices.
 full_build "$RELEASE_DEVICES" "$RELEASE_DATE"
 
