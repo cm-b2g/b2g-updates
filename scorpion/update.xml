@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <updates>
 	<update appVersion="47.0a1" buildID="20160224201509" detailsURL="http://www.mozilla.com/test/sample-details.html" isOSUpdate="true" licenseURL="http://www.mozilla.com/test/sample-eula.html" type="minor" version="2.6.0.0-prerelease">
-		<patch URL="https://github.com/fxpdev/b2g-updates/releases/download/20160224/b2g-update-20160224-scorpion.mar" hashFunction="SHA512" hashValue="2ac82a380b828cc951609d42bfa5266f2bea8ddc5523254af32705c748f47cb26ebf222da4633807d755d4f8c6f78a93a6794ac42454bfaa04fa5565002ae890" size="232680409" type="complete"/>
+		<patch URL="https://github.com/cm-b2g/b2g-updates/releases/download/20160224/b2g-update-20160224-scorpion.mar" hashFunction="SHA512" hashValue="2ac82a380b828cc951609d42bfa5266f2bea8ddc5523254af32705c748f47cb26ebf222da4633807d755d4f8c6f78a93a6794ac42454bfaa04fa5565002ae890" size="232680409" type="complete"/>
 	</update>
 </updates>

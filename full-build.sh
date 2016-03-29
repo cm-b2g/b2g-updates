@@ -26,7 +26,7 @@ fi;
 
 # Prepare for the update.xml
 export ANDROID_TOOLCHAIN="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/bin/"
-URL_TEMPLATE="https://github.com/fxpdev/b2g-updates/releases/download/$2/b2g-update-$2-$1.mar"
+URL_TEMPLATE="https://github.com/cm-b2g/b2g-updates/releases/download/$2/b2g-update-$2-$1.mar"
 B2G_MILESTONE=`cat out/target/product/$1/system/b2g/platform.ini | grep Milestone | sed -e 's/Milestone=//' | tr -d '\n\r'`
 MOZ_B2G_VERSION=`cat gecko/b2g/confvars.sh | grep MOZ_B2G_VERSION | sed -e 's/MOZ_B2G_VERSION=//' | tr -d '\n\r'`
 B2G_BUILD_ID=`cat out/target/product/$1/system/b2g/platform.ini | grep BuildID | sed -e 's/BuildID=//' | tr -d '\n\r'`

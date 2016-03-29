@@ -29,7 +29,7 @@ push_full_release()
         # Upload the release to GitHub.
         if [ -f $NAME/B2G_MASTER-$2_$NAME.zip ]; then
             echo "Uploading full release for $NAME"
-            ./github-release upload --user fxpdev --repo b2g-updates --tag "nightly" --name "B2G_MASTER-$2_$NAME.zip" --file $NAME/B2G_MASTER-$2_$NAME.zip
+            ./github-release upload --user cm-b2g --repo b2g-updates --tag "nightly" --name "B2G_MASTER-$2_$NAME.zip" --file $NAME/B2G_MASTER-$2_$NAME.zip
         fi
     done
 
@@ -46,7 +46,7 @@ push_recovery_release()
         # Upload the release to GitHub.
         if [ -f $NAME/recovery_$NAME.img ]; then
             echo "Uploading recovery for $NAME"
-            ./github-release upload --user fxpdev --repo b2g-updates --tag "recovery" --name "recovery_$NAME.img" --file $NAME/recovery_$NAME.img
+            ./github-release upload --user cm-b2g --repo b2g-updates --tag "recovery" --name "recovery_$NAME.img" --file $NAME/recovery_$NAME.img
         fi
     done
 
@@ -69,8 +69,6 @@ case "$1" in
 
     *)
         echo "What are you trying to push? full or recovery?"
-        popd > /dev/null
-        exit -1
         ;;
 esac
 

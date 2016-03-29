@@ -67,14 +67,14 @@ github_release()
     git tag $2 && git push --tags
 
     # Create the release from the tag.
-    ./github-release release --user fxpdev --repo b2g-updates --tag "$2" --name "$OTA_NAME" --description "$OTA_DESC" --pre-release
+    ./github-release release --user cm-b2g --repo b2g-updates --tag "$2" --name "$OTA_NAME" --description "$OTA_DESC" --pre-release
 
     # Upload the releases to GitHub if it exists.
     for NAME in $1
     do
         if [ -f $NAME/b2g-update-$2-$NAME.mar ]; then
             echo "Uploading $NAME"
-            ./github-release upload --user fxpdev --repo b2g-updates --tag "$2" --name "b2g-update-$2-$NAME.mar" --file $NAME/b2g-update-$2-$NAME.mar
+            ./github-release upload --user cm-b2g --repo b2g-updates --tag "$2" --name "b2g-update-$2-$NAME.mar" --file $NAME/b2g-update-$2-$NAME.mar
         fi
     done
 
@@ -93,6 +93,6 @@ full_build "$RELEASE_DEVICES" "$RELEASE_DATE"
 # Go to /b2g-updates to publish the releases.
 pushd b2g-updates/ > /dev/null
 add_update_xml "$RELEASE_DEVICES" "$RELEASE_DATE"
+echo $GITHUB_TOKEN
 github_release "$RELEASE_DEVICES" "$RELEASE_DATE"
 popd > /dev/null
-
